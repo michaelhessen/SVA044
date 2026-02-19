@@ -94,6 +94,27 @@ textarea{resize:vertical;min-height:80px}
 .schema-tbl input{width:100%;border:1px solid transparent;border-radius:3px;padding:5px 4px;font-size:.82rem;text-align:center;background:transparent}
 .schema-tbl input:focus{border-color:var(--pri);background:var(--pri-l)}
 
+/* Color-coded schema columns for study examples */
+.schema-ex{min-width:700px;width:100%;border-collapse:collapse;font-size:.88rem;margin:1rem 0}
+.schema-ex th{padding:10px 8px;text-align:center;font-size:.78rem;font-weight:700;white-space:nowrap;border:1px solid rgba(0,0,0,.1)}
+.schema-ex td{padding:10px 8px;text-align:center;border:1px solid rgba(0,0,0,.08);font-size:.88rem}
+.schema-ex td:empty,.schema-ex td.empty{color:var(--text3);font-style:italic}
+.schema-ex .col-bi{background:#ede9fe}.schema-ex th.col-bi{background:#7c3aed;color:#fff}
+.schema-ex .col-su{background:#dbeafe}.schema-ex th.col-su{background:#2563eb;color:#fff}
+.schema-ex .col-sa{background:#fee2e2}.schema-ex th.col-sa{background:#dc2626;color:#fff}
+.schema-ex .col-fv{background:#d1fae5}.schema-ex th.col-fv{background:#059669;color:#fff}
+.schema-ex .col-iv{background:#ecfdf5}.schema-ex th.col-iv{background:#10b981;color:#fff}
+.schema-ex .col-op{background:#fef3c7}.schema-ex th.col-op{background:#d97706;color:#fff}
+.schema-ex .col-ad{background:#f1f5f9}.schema-ex th.col-ad{background:#64748b;color:#fff}
+.schema-legend{display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 0;font-size:.78rem}
+.schema-legend span{padding:3px 10px;border-radius:12px;font-weight:600}
+.step-box{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem;margin:.75rem 0}
+.step-box h4{font-size:.92rem;margin-bottom:.5rem;color:var(--pri-d)}
+.step-box ol{margin-left:1.2rem;font-size:.9rem}
+.step-box ol li{margin-bottom:.3rem}
+.sentence-mark{background:#fef3c7;padding:2px 0;font-family:var(--font-head);font-size:1rem;line-height:1.8}
+.sentence-mark .bisats{background:#ede9fe;padding:2px 6px;border-radius:4px;font-weight:600}
+
 /* Exam selector */
 .exam-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.5rem;margin:1rem 0}
 .exam-card{border:2px solid var(--border);border-radius:8px;padding:.75rem;text-align:center;cursor:pointer;transition:all .2s}
@@ -713,6 +734,152 @@ const STUDY = [
 {q:'Vilken av dessa är en bisats?',opts:['"Jag sprang hem"','"eftersom det regnade"','"Det var kallt"'],ans:1,expl:'"eftersom" är en subjunktion som inleder en bisats. Den kan inte stå ensam.'}
 ]},
 
+{id:'bisatsschema',ch:'3. Satslära',title:'3.7 Bisatsschema – positionsschemat steg för steg',content:[
+{t:'p',v:'Positionsschemat för bisatser är ett av de viktigaste verktygen på tentan. Här lär du dig exakt hur det fungerar – kolumn för kolumn, med många exempel och minnesregler.'},
+{t:'exam',v:'Bisatsschemat kommer på <strong>nästan varje tenta</strong> (8 av 12 tentor). Du får vanligtvis 2–4 bisatser som ska placeras i ett schema med 7 kolumner. Det ger ofta 4–8 poäng!'},
+
+{t:'p',v:'<h3 style="margin-top:1.5rem">Vad är ett positionsschema?</h3>Ett positionsschema visar <strong>var varje del av bisatsen ska stå</strong>. Till skillnad från huvudsatser, som har ganska fri ordföljd, följer bisatser ett <em>strikt mönster</em>. Schemat har 7 kolumner som alltid kommer i samma ordning:'},
+
+{t:'table',headers:['Kolumn','Namn','Innehåller'],rows:[
+['1','Bisatsinledare','Subjunktion (att, om, när, eftersom...) eller relativt pronomen (som, vilken, vars)'],
+['2','Subjekt','Vem eller vad gör något (om det inte redan är bisatsinledaren)'],
+['3','Satsadverbial','Nekande/modifierande ord: inte, aldrig, ofta, kanske, ju, nog, bara...'],
+['4','Finit verb','Det böjda verbet (i presens, preteritum etc.)'],
+['5','Infinit verb','Infinitiv, supinum eller particip (oböjt verb)'],
+['6','Objekt / Predikativ','Den/det som påverkas / beskriver subjektet'],
+['7','Adverbial','När, var, hur, varför – tids-, plats- och sättsbestämningar']
+]},
+
+{t:'tip',v:'<strong>Gå igenom kolumnerna från vänster till höger.</strong> Börja alltid med att hitta bisatsinledaren – den går ALLTID i kolumn 1. Sedan fyller du i resten i ordning.'},
+
+{t:'p',v:'<h3 style="margin-top:1.5rem">Kolumn 1: Bisatsinledare</h3>Bisatsinledaren är det ord som <strong>startar bisatsen</strong>. Det kan vara en <strong>subjunktion</strong> eller ett <strong>relativt pronomen</strong>.'},
+{t:'p',v:'<strong>Vanliga subjunktioner:</strong> att, om, när, eftersom, medan, innan, efter att, för att, så att, trots att, fastän, ifall<br><strong>Relativa pronomen:</strong> som, vilken, vilket, vilka, vars, där'},
+{t:'tip',v:'Subjunktioner binder en bisats till en huvudsats. Förväxla dem inte med <em>konjunktioner</em> (och, men, eller) som binder <em>huvudsatser</em>!'},
+
+{t:'p',v:'<h3 style="margin-top:1.5rem">Kolumn 2: Subjekt</h3>Subjektet är <strong>vem eller vad</strong> som gör något i bisatsen. Hitta det genom att fråga: <em>"Vem/vad + verbet?"</em><br><br>⚠️ Ibland är bisatsinledaren själv subjekt – t.ex. <em>"som"</em> i <em>"…som sprang fort"</em>. Då lämnas kolumn 2 tom!'},
+
+{t:'p',v:'<h3 style="margin-top:1.5rem">Kolumn 3: Satsadverbial ⭐</h3>Här gäller den viktigaste regeln – <strong>BIFF</strong>! I bisatser placeras satsadverbialet <strong>FÖRE det finita verbet</strong>.'},
+{t:'tip',v:'<strong style="font-size:1.1rem">🔑 BIFF = Bisats – Inte Före Finita verbet</strong><br><br>Jämför:<br>Huvudsats: Jag äter <strong>inte</strong> glass (inte EFTER verbet)<br>Bisats: …att jag <strong>inte</strong> äter glass (inte FÖRE verbet)<br><br>BIFF gäller ALLA satsadverbial, inte bara "inte"!'},
+{t:'p',v:'<strong>Vanliga satsadverbial:</strong> inte, aldrig, alltid, ofta, sällan, kanske, nog, ju, väl, bara, redan, också, fortfarande, knappast'},
+{t:'exam',v:'Satsadverbialets placering (kolumn 3) är det <strong>vanligaste felet</strong> på tentan. Många studenter placerar det efter verbet – som i huvudsats. Kom ihåg BIFF!'},
+
+{t:'p',v:'<h3 style="margin-top:1.5rem">Kolumn 4: Finit verb</h3>Det finita verbet är det verb som är <strong>böjt i tempus</strong> (presens, preteritum, imperativ).<br><br>Exempel: <em>äter</em> (presens), <em>sprang</em> (preteritum), <em>har</em> (presens av "ha"), <em>ska</em> (presens av hjälpverb)'},
+{t:'tip',v:'<strong>Hur vet jag vilket verb som är finit?</strong><br>Fråga: "Är verbet böjt i nutid/dåtid?" → Finit!<br>"Är verbet i grundform/supinum/particip?" → Infinit!<br><br>• <em>äter</em> = presens → FINIT (kolumn 4)<br>• <em>äta</em> = infinitiv → INFINIT (kolumn 5)<br>• <em>ätit</em> = supinum → INFINIT (kolumn 5)'},
+
+{t:'p',v:'<h3 style="margin-top:1.5rem">Kolumn 5: Infinit verb</h3>Hit går verb som INTE är böjda i tempus: <strong>infinitiv</strong> (äta, springa), <strong>supinum</strong> (ätit, sprungit) och <strong>particip</strong> (ätande, sprungen).'},
+{t:'p',v:'Ofta ser du hjälpverb + infinit verb i par:<br>• <em>har</em> (finit, kol 4) + <em>ätit</em> (supinum, kol 5)<br>• <em>ska</em> (finit, kol 4) + <em>springa</em> (infinitiv, kol 5)<br>• <em>måste</em> (finit, kol 4) + <em>gå</em> (infinitiv, kol 5) + <em>före</em> (partikel, kol 5)'},
+
+{t:'p',v:'<h3 style="margin-top:1.5rem">Kolumn 6: Objekt / Predikativ</h3><strong>Objekt</strong> = den/det som påverkas av verbet: <em>"…att jag äter <u>glass</u>"</em><br><strong>Predikativ</strong> = beskriver subjektet via vara/bli: <em>"…att hon är <u>glad</u>"</em><br><br>Ibland innehåller kolumn 6 också reflexiva pronomen som <em>sig, mig</em>.'},
+
+{t:'p',v:'<h3 style="margin-top:1.5rem">Kolumn 7: Adverbial</h3>Adverbial talar om <strong>när, var, hur eller varför</strong> något händer.<br><br>Exempel: <em>i skolan</em> (var), <em>snabbt</em> (hur), <em>igår</em> (när), <em>med glädje</em> (hur)<br><br>⚠️ Förväxla inte adverbial (kolumn 7) med satsadverbial (kolumn 3)! Satsadverbial modifierar hela satsen (inte, aldrig, kanske), medan vanliga adverbial ger tid/plats/sätt.'},
+
+{t:'tip',v:'<strong>Skillnad satsadverbial vs adverbial:</strong><br>• Satsadverbial (kol 3): <em>inte, aldrig, kanske, ju, nog</em> – påverkar hela satsens sanningsvärde<br>• Adverbial (kol 7): <em>i skolan, snabbt, igår, på kvällen</em> – ger tid/plats/sätt'},
+
+{t:'p',v:'<h3 style="margin-top:2rem">🎯 5 genomarbetade exempel</h3>Nu ska vi gå igenom fem bisatser steg för steg och fylla i schemat. Följ med noggrant!'},
+
+{t:'p',v:'<strong>Exempel 1: En enkel bisats med satsadverbial</strong>'},
+{t:'schema_example',v:{
+sentence:'Jag vet <span class="bisats">att jag inte äter glass</span>.',
+steps:[
+'Hitta bisatsinledaren → <strong>att</strong> (subjunktion) → kolumn 1',
+'Hitta subjektet → <strong>jag</strong> (vem äter?) → kolumn 2',
+'Finns det satsadverbial? → <strong>inte</strong> → kolumn 3 (BIFF!)',
+'Hitta det finita verbet → <strong>äter</strong> (presens) → kolumn 4',
+'Finns infinit verb? → Nej, tomt',
+'Hitta objekt → <strong>glass</strong> (vad äts?) → kolumn 6',
+'Finns adverbial? → Nej, tomt'
+],
+rows:[['att','jag','inte','äter','','glass','']]
+}},
+
+{t:'p',v:'<strong>Exempel 2: Relativ bisats med infinit verb</strong>'},
+{t:'schema_example',v:{
+sentence:'Priset <span class="bisats">som har höjt sig mest</span> är bensinpriset.',
+steps:[
+'Hitta bisatsinledaren → <strong>som</strong> (relativt pronomen, syftar på "priset") → kolumn 1',
+'Är "som" subjekt? → Ja! "som" = priset som har höjt sig. Kolumn 2 lämnas tom.',
+'Finns satsadverbial? → Nej, tomt',
+'Hitta det finita verbet → <strong>har</strong> (presens av "ha") → kolumn 4',
+'Hitta infinit verb → <strong>höjt</strong> (supinum av "höja") → kolumn 5',
+'Hitta objekt → <strong>sig</strong> (reflexivt pronomen) → kolumn 6',
+'Finns adverbial? → <strong>mest</strong> (hur mycket?) → kolumn 7'
+],
+rows:[['som','','','har','höjt','sig','mest']]
+}},
+
+{t:'tip',v:'När <strong>"som"</strong> är bisatsinledare OCH subjekt, lämna kolumn 2 tom! "Som" gör dubbelt jobb – det inleder bisatsen och är samtidigt den som utför handlingen.'},
+
+{t:'p',v:'<strong>Exempel 3: Längre bisats med hjälpverb</strong>'},
+{t:'schema_example',v:{
+sentence:'Hon gick hem <span class="bisats">eftersom praktiska bestyr måste gå före</span>.',
+steps:[
+'Hitta bisatsinledaren → <strong>eftersom</strong> (subjunktion) → kolumn 1',
+'Hitta subjektet → <strong>praktiska bestyr</strong> (vad måste gå före?) → kolumn 2',
+'Finns satsadverbial? → Nej, tomt',
+'Hitta det finita verbet → <strong>måste</strong> (hjälpverb, presens) → kolumn 4',
+'Hitta infinit verb → <strong>gå</strong> (infinitiv) + <strong>före</strong> (partikel, hör till "gå före") → kolumn 5',
+'Finns objekt? → Nej, tomt',
+'Finns adverbial? → Nej (\"före\" är partikel, inte adverbial)'
+],
+rows:[['eftersom','praktiska bestyr','','måste','gå före','','']]
+}},
+
+{t:'p',v:'<strong>Exempel 4: Bisats med adverbial</strong>'},
+{t:'schema_example',v:{
+sentence:'Läraren märker <span class="bisats">när man möter en elev med tom blick</span>.',
+steps:[
+'Hitta bisatsinledaren → <strong>när</strong> (subjunktion) → kolumn 1',
+'Hitta subjektet → <strong>man</strong> (vem möter?) → kolumn 2',
+'Finns satsadverbial? → Nej, tomt',
+'Hitta det finita verbet → <strong>möter</strong> (presens) → kolumn 4',
+'Finns infinit verb? → Nej, tomt',
+'Hitta objekt → <strong>en elev</strong> (vem möter man?) → kolumn 6',
+'Hitta adverbial → <strong>med tom blick</strong> (hur?) → kolumn 7'
+],
+rows:[['när','man','','möter','','en elev','med tom blick']]
+}},
+
+{t:'p',v:'<strong>Exempel 5: Kort bisats med partikelverb och satsadverbial</strong>'},
+{t:'schema_example',v:{
+sentence:'Vi förstår <span class="bisats">att de inte räcker till</span>.',
+steps:[
+'Hitta bisatsinledaren → <strong>att</strong> (subjunktion) → kolumn 1',
+'Hitta subjektet → <strong>de</strong> (vem/vad räcker?) → kolumn 2',
+'Finns satsadverbial? → <strong>inte</strong> → kolumn 3 (BIFF!)',
+'Hitta det finita verbet → <strong>räcker</strong> (presens) → kolumn 4',
+'Hitta infinit verb? → Nej, men <strong>till</strong> är en partikel som hör till "räcka till". Partiklar placeras i kolumn 5.',
+'Finns objekt? → Nej, tomt',
+'Finns adverbial? → Nej, tomt'
+],
+rows:[['att','de','inte','räcker','till','','']]
+}},
+
+{t:'exam',v:'Du får 2–4 bisatser att sätta i schema. Börja ALLTID med att identifiera bisatsinledaren – den går i kolumn 1. Arbeta sedan vänster till höger. Tomma kolumner är helt okej!'},
+
+{t:'p',v:'<h3 style="margin-top:2rem">📋 Sammanfattning – checklista för schemat</h3>'},
+{t:'table',headers:['Steg','Fråga dig själv','Kolumn'],rows:[
+['1','Vilket ord inleder bisatsen? (subjunktion/relativt pronomen)','1 – Bisatsinledare'],
+['2','Vem/vad utför handlingen? (Obs: kan vara bisatsinledaren!)','2 – Subjekt'],
+['3','Finns inte/aldrig/kanske/bara etc.? → FÖRE verbet!','3 – Satsadverbial'],
+['4','Vilket verb är böjt i tempus?','4 – Finit verb'],
+['5','Finns infinitiv/supinum/particip/partikel?','5 – Infinit verb'],
+['6','Vem/vad påverkas? Eller beskrivning via vara/bli?','6 – Objekt/Pred.'],
+['7','När/var/hur/varför?','7 – Adverbial']
+]},
+
+{t:'tip',v:'<strong>Tomt är OK!</strong> De flesta bisatser fyller INTE alla 7 kolumner. Det normala är 4–5 ifyllda kolumner. Om du försöker tvinga in något i varje ruta gör du förmodligen fel.'},
+{t:'tip',v:'<strong>Partikelverb</strong> (räcka <u>till</u>, gå <u>före</u>, komma <u>ihåg</u>, stå <u>ut</u>): partikeln placeras i kolumn 5 (infinit verb), tillsammans med eventuellt infinit verb. Den hör grammatiskt till verbet.'}
+],quiz:[
+{q:'Vilken kolumn ska "inte" stå i, i en bisats?',opts:['Kolumn 2 (Subjekt)','Kolumn 3 (Satsadverbial)','Kolumn 4 (Finit verb)','Kolumn 7 (Adverbial)'],ans:1,expl:'BIFF-regeln: satsadverbial (som "inte") placeras i kolumn 3, FÖRE det finita verbet.'},
+{q:'I bisatsen "att hon aldrig kommer", vad är det finita verbet?',opts:['att','aldrig','kommer','hon'],ans:2,expl:'"kommer" är böjt i presens → finit verb (kolumn 4). "aldrig" är satsadverbial (kolumn 3).'},
+{q:'Var placerar du "sig" i bisatsschemat?',opts:['Kolumn 2 (Subjekt)','Kolumn 3 (Satsadverbial)','Kolumn 5 (Infinit verb)','Kolumn 6 (Objekt/Predikativ)'],ans:3,expl:'"sig" är ett reflexivt pronomen som fungerar som objekt → kolumn 6.'},
+{q:'I "som vi inte har sett", vad går i kolumn 5 (Infinit verb)?',opts:['vi','inte','har','sett'],ans:3,expl:'"sett" är supinum av "se" → infinit verb (kolumn 5). "har" är finit verb (kolumn 4).'},
+{q:'Vilken är bisatsinledaren i "eftersom det regnade kraftigt"?',opts:['det','regnade','kraftigt','eftersom'],ans:3,expl:'"eftersom" är subjunktion → bisatsinledare (kolumn 1).'},
+{q:'I bisatsen "att barnen ofta leker i parken" – var ska "ofta" stå?',opts:['Kolumn 5 (Infinit verb)','Kolumn 7 (Adverbial)','Kolumn 3 (Satsadverbial)','Kolumn 6 (Objekt)'],ans:2,expl:'"ofta" är ett satsadverbial → kolumn 3 (BIFF!). Det står före det finita verbet "leker".'},
+{q:'Om "som" är både bisatsinledare och subjekt, vad händer med kolumn 2?',opts:['Man skriver "som" igen','Den lämnas tom','Man skriver ett streck (–)','Man skriver subjektet från huvudsatsen'],ans:1,expl:'När "som" fyller dubbel roll (bisatsinledare + subjekt) lämnas kolumn 2 tom. "Som" står bara i kolumn 1.'},
+{q:'I "att de inte hade kunnat komma i tid" – vad står i kolumn 5?',opts:['hade','inte','kunnat komma','i tid'],ans:2,expl:'"hade" = finit verb (kolumn 4). "kunnat komma" = supinum + infinitiv, båda infinita → kolumn 5. "i tid" = adverbial (kolumn 7).'}
+]},
+
 {id:'ordbildning',ch:'4. Ordbildning',title:'4. Ordbildning',content:[
 {t:'p',v:'Svenska skapar nya ord på tre sätt:'},
 {t:'p',v:'<strong>4.1 Sammansättning</strong> – Två eller flera ord sätts ihop: sol + sken = solsken. Förleden modifierar efterleden. Efterleden bestämmer ordklass. Ibland finns <strong>fogmorfem</strong>: barn-<strong>s</strong>-bok, skol-<strong>a</strong>-gård.'},
@@ -944,6 +1111,15 @@ function renderStudy(){
    content+=`<table class="tbl tbl-sm"><tr>${b.headers.map(h=>'<th>'+h+'</th>').join('')}</tr>`;
    b.rows.forEach(r=>{content+='<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>'});
    content+='</table>';
+  }
+  else if(b.t==='schema_example'){
+   const cc=['col-bi','col-su','col-sa','col-fv','col-iv','col-op','col-ad'];
+   const ch=['Bisats\u00adinledare','Subjekt','Sats\u00adadverbial','Finit verb','Infinit verb','Objekt/\u200bPred.','Adverbial'];
+   content+=`<div style="margin:1.5rem 0"><p class="sentence-mark">${b.v.sentence}</p>`;
+   if(b.v.steps) content+=`<div class="step-box"><h4>Steg för steg:</h4><ol>${b.v.steps.map(s=>'<li>'+s+'</li>').join('')}</ol></div>`;
+   content+=`<div class="schema-wrap"><table class="schema-ex"><tr>${ch.map((h,i)=>'<th class="'+cc[i]+'">'+h+'</th>').join('')}</tr>`;
+   b.v.rows.forEach(r=>{content+='<tr>'+r.map((c,i)=>'<td class="'+cc[i]+'">'+(c||'–')+'</td>').join('')+'</tr>'});
+   content+='</table></div></div>';
   }
  });
 
